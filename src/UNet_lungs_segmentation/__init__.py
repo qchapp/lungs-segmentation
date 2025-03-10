@@ -1,0 +1,1 @@
+from .lungs_predict import LungsPredict

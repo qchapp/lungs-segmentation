@@ -1,0 +1,6 @@
+napari[all]==0.4.18
+scikit-image==0.22.0
+tifffile==2023.9.18
+matplotlib==3.8.2
+csbdeep==0.7.4
+python-dotenv==1.0.0

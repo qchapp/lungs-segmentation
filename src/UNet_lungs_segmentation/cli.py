@@ -1,0 +1,49 @@
+from UNet_lungs_segmentation import LungsPredict
+import tifffile
+from pathlib import Path
+import argparse
+import glob
+
+def process_input_file_predict(input_image_file, threshold, lungs_predict):
+    image = tifffile.imread(input_image_file)
+
+    pred = lungs_predict.predict(image)
+    if threshold is None:
+        threshold = 0.5
+    post = lungs_predict.postprocess(pred, threshold)
+
+    pt = Path(input_image_file)
+    out_file_name = pt.parent / f"{pt.stem}_mask.tif"
+
+    tifffile.imwrite(out_file_name, post)
+    print("Wrote to ", out_file_name)
+
+
+def cli_predict_image():
+    """Command-line entry point for model inference."""
+    parser = argparse.ArgumentParser(description="Use this command to run inference.")
+    parser.add_argument("-i", type=str, required=True, help="Input image. Must be either a TIF or a NIFTI image file.")
+    parser.add_argument("-t", type=int, required=False, help="Threshold applied during postprocessing. Default to 0.5.")
+    args = parser.parse_args()
+
+    input_image_file = args.i
+    threshold = args.t
+
+    lungs_predict = LungsPredict()
+
+    process_input_file_predict(input_image_file, threshold, lungs_predict)
+
+
+def cli_predict_folder():
+    parser = argparse.ArgumentParser(description="Use this command to run inference in batch on a given folder.")
+    parser.add_argument("-i", type=str, required=True, help="Input folder. Must contain suitable TIF image files.")
+    parser.add_argument("-t", type=int, required=False, help="Threshold applied during postprocessing. Default to 0.5.")
+    args = parser.parse_args()
+
+    input_folder = args.i
+    threshold = args.t
+
+    lungs_predict = LungsPredict()
+
+    for input_image_file in glob.glob(str(Path(input_folder) / "*.tif")):
+        process_input_file_predict(input_image_file, threshold, lungs_predict)

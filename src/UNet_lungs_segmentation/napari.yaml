@@ -1,0 +1,14 @@
+name: UNet-lungs-segmentation
+display_name: Mouse lungs segmentation
+contributions:
+  commands:
+    - id: UNet-lungs-segmentation.predict
+      title: Lungs segmentation
+      python_name: UNet_lungs_segmentation.napari_plugin:LungsSegmentationWidget
+  widgets:
+    - command: UNet-lungs-segmentation.predict
+      display_name: Lungs segmentation
+  sample_data:
+  - key: lung_ct
+    display_name: Mouse lung CT scan
+    uri: https://zenodo.org/record/8099852/files/lungs_ct.tif
