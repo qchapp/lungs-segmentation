@@ -28,13 +28,13 @@ pip install UNet_lungs_segmentation
 or clone the repository and install with:
 
 ```sh
-git clone git@gitlab.epfl.ch:center-for-imaging/tumor-lungs.git
+git clone https://github.com/titi1000/lungs-segmentation.git
 pip install -e .
 ```
 
 ## Models
 
-The model weights (~1 GB) should be in local and saved in the home folder in a directory named `checkpoints1` under the file name `model_weights.pt`.
+The model weights (~1 GB) will be automatically downloaded from [Zenodo](https://zenodo.org/records/15011174).
 
 
 ## Usage in Napari
@@ -108,7 +108,7 @@ Our model was trained using a dataset of `355` images coming from 17 different e
 
 ## Issues
 
-If you encounter any problems, please file an issue along with a detailed description.
+If you encounter any problems, please fill an issue along with a detailed description.
 
 ## License
 
