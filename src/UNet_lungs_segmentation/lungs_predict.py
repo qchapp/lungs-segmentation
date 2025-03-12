@@ -1,10 +1,10 @@
 import numpy as np
 import torch
-from UNet_lungs_segmentation.model import UNet
+from unet_lungs_segmentation.model import UNet
 from torchvision.transforms import ToTensor
 from skimage.transform import resize
 from skimage.exposure import rescale_intensity
-from UNet_lungs_segmentation.utils import get_weights
+from unet_lungs_segmentation.utils import get_weights
 
 
 class LungsPredict:

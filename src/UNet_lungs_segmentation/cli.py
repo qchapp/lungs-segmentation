@@ -1,4 +1,4 @@
-from UNet_lungs_segmentation import LungsPredict
+from unet_lungs_segmentation import LungsPredict
 import tifffile
 from pathlib import Path
 import argparse

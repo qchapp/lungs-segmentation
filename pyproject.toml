@@ -8,3 +8,22 @@ line-length = 79
 [tool.isort]
 profile = "black"
 line_length = 79
+
+[project]
+name = "unet_lungs_segmentation"
+version = "1.0.2"
+description = "A U-Net model for lung segmentation in mice CT scans."
+authors = [
+    { name = "Chappuis Quentin", email = "quentin.chappuis@epfl.ch" }
+]
+license = { text = "BSD-3-Clause" }
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "napari[all]==0.4.18",
+    "scikit-image==0.22.0",
+    "tifffile==2023.9.18",
+    "matplotlib==3.8.2",
+    "csbdeep==0.7.4",
+    "python-dotenv==1.0.0"
+]

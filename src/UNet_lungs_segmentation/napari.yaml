@@ -4,7 +4,7 @@ contributions:
   commands:
     - id: UNet-lungs-segmentation.predict
       title: Lungs segmentation
-      python_name: UNet_lungs_segmentation.napari_plugin:LungsSegmentationWidget
+      python_name: unet_lungs_segmentation.napari_plugin:LungsSegmentationWidget
   widgets:
     - command: UNet-lungs-segmentation.predict
       display_name: Lungs segmentation

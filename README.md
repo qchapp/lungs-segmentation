@@ -1,9 +1,9 @@
-# 🫁 Lungs segmentation in mice CT scans
+# 🐭 Lungs segmentation in mice CT scans
 
 We provide a neural network model for segmenting the lungs of the mice. The model is based on the [U-Net](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) architecture.
 
 <p align="center">
-    <img src="images/main_fig.png" height="500">
+    <img src="https://raw.githubusercontent.com/titi1000/lungs-segmentation/refs/heads/master/images/main_fig.png" height="500">
 </p>
 
 The goal of our tool is to provid a reliable way to segment the lungs in mouse CT scans. The U-net model produces a binary mask representing the segmentation of the lungs.
@@ -17,12 +17,12 @@ The goal of our tool is to provid a reliable way to segment the lungs in mouse C
 
 We recommend performing the installation in a clean Python environment.
 
-The code requires `python>=3.9`, as well as `pytorch>=2.0`. If wish to use a GPU with CUDA support, you may want to install Pytorch first and separately following the instructions for your platform on [pytorch.org](https://pytorch.org/get-started/locally/).
+The code requires `python>=3.9`, as well as `pytorch>=2.0`. Please install Pytorch first and separately following the instructions for your platform on [pytorch.org](https://pytorch.org/get-started/locally/).
 
-Install `UNet_lungs_segmentation` using *pip* after you've installed Pytorch (note that it is not a Python package for now):
+Install `unet_lungs_segmentation` using *pip* after you've installed Pytorch:
 
 ```sh
-pip install UNet_lungs_segmentation
+pip install unet_lungs_segmentation
 ```
 
 or clone the repository and install with:
@@ -49,10 +49,10 @@ To open an image, use `File > Open files` or drag-and-drop an image into the vie
 
 **Sample data**: To test the model, you can run it on our provided sample image. In Napari, open the image from `File > Open Sample > Mouse lung CT scan`.
 
-Next, in the menu bar select `Plugins > Lungs segmentation (UNet_lungs_segmentation)`. Select an image and run it by pressing the "Segment lungs" button.
+Next, in the menu bar select `Plugins > Lungs segmentation (unet_lungs_segmentation)`. Select an image and run it by pressing the "Segment lungs" button.
 
 <p align="center">
-    <img src="images/napari-screenshot.png" height="500">
+    <img src="https://raw.githubusercontent.com/titi1000/lungs-segmentation/refs/heads/master/images/napari-screenshot.png" height="500">
 </p>
 
 ## Usage as a library
@@ -60,7 +60,7 @@ Next, in the menu bar select `Plugins > Lungs segmentation (UNet_lungs_segmentat
 You can run a model in just a few lines of code to produce a segmentation mask from an image (represented as a numpy array).
 
 ```py
-from UNet_lungs_segmentation import LungsPredict
+from unet_lungs_segmentation import LungsPredict
 
 lungs_predict = LungsPredict()
 segmentation = lungs_predict.predict(your_image)
