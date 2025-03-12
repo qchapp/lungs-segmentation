@@ -4,9 +4,10 @@ from UNet_lungs_segmentation.model import UNet
 from torchvision.transforms import ToTensor
 from skimage.transform import resize
 from skimage.exposure import rescale_intensity
+from UNet_lungs_segmentation.utils import get_weights
 
 
-class LungsPredict():
+class LungsPredict:
     def __init__(self):
         self.device = (
             "cuda"
@@ -16,7 +17,7 @@ class LungsPredict():
             else "cpu"
         )
         self.model = UNet(n_channels=1, n_class=1).to(self.device)
-        self.checkpoint = torch.load("checkpoints1/model_weights.pt")
+        self.checkpoint = get_weights()
         self.model.load_state_dict(self.checkpoint["model_state_dict"])
 
     """
