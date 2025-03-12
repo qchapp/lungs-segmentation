@@ -26,7 +26,11 @@ def cli_predict_image():
     parser.add_argument("-t", type=int, required=False, help="Threshold applied during postprocessing. Default to 0.5.")
     args = parser.parse_args()
 
-    input_image_file = args.i
+    input_image_file = Path(args.i).resolve()
+
+    if not input_image_file.exists():
+        raise FileNotFoundError(f"Input file not found: {input_image_file}\nTry to give an absolute path.")
+
     threshold = args.t
 
     lungs_predict = LungsPredict()
@@ -40,7 +44,11 @@ def cli_predict_folder():
     parser.add_argument("-t", type=int, required=False, help="Threshold applied during postprocessing. Default to 0.5.")
     args = parser.parse_args()
 
-    input_folder = args.i
+    input_folder = Path(args.i).resolve()
+
+    if not input_folder.exists():
+        raise FileNotFoundError(f"Input folder not found: {input_folder}\nTry to give an absolute path.")
+
     threshold = args.t
 
     lungs_predict = LungsPredict()
