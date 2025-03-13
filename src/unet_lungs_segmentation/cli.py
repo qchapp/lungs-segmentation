@@ -9,7 +9,7 @@ def process_input_file_predict(input_image_file, threshold, lungs_predict):
 
     if threshold is None:
         threshold = 0.5
-    pred = lungs_predict.segment_lungs(pred, threshold)
+    pred = lungs_predict.segment_lungs(image, threshold)
 
     pt = Path(input_image_file)
     out_file_name = pt.parent / f"{pt.stem}_mask.tif"
