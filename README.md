@@ -63,12 +63,11 @@ You can run a model in just a few lines of code to produce a segmentation mask f
 from unet_lungs_segmentation import LungsPredict
 
 lungs_predict = LungsPredict()
-segmentation = lungs_predict.predict(your_image)
-mask = lungs_predict.postprocess(segmentation)
+mask = lungs_predict.segment_lungs(your_image)
 ```
 or if you want to apply a specific `threshold` (`float` between 0 and 1):
 ```py
-mask = lungs_predict.postprocess(segmentation, threshold)
+mask = lungs_predict.segment_lungs(your_image, threshold)
 ```
 
 ## Usage as a CLI

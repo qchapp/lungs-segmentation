@@ -46,5 +46,13 @@ class LungsPredict:
     """
         Apply a threshold of 0.5 to the segmented image in order to have a binary mask.
     """
-    def postprocess(self, out: np.ndarray, threshold = 0.5) -> np.ndarray:
+    def postprocess(self, out: np.ndarray, threshold=0.5) -> np.ndarray:
         return out > threshold
+    
+    """
+        Predict and then post-process (threshold) to obtain a binary mask.
+    """
+    def segment_lungs(self, image: np.ndarray, threshold=0.5) -> np.ndarray:
+        raw_prediction = self.predict(image)
+        binary_mask = self.postprocess(raw_prediction, threshold)
+        return binary_mask

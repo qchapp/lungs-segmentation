@@ -7,15 +7,14 @@ import glob
 def process_input_file_predict(input_image_file, threshold, lungs_predict):
     image = tifffile.imread(input_image_file)
 
-    pred = lungs_predict.predict(image)
     if threshold is None:
         threshold = 0.5
-    post = lungs_predict.postprocess(pred, threshold)
+    pred = lungs_predict.segment_lungs(pred, threshold)
 
     pt = Path(input_image_file)
     out_file_name = pt.parent / f"{pt.stem}_mask.tif"
 
-    tifffile.imwrite(out_file_name, post)
+    tifffile.imwrite(out_file_name, pred)
     print("Wrote to ", out_file_name)
 
 
