@@ -11,7 +11,7 @@ line_length = 79
 
 [project]
 name = "unet_lungs_segmentation"
-version = "1.0.4"
+version = "1.0.5"
 description = "A U-Net model for lung segmentation in mice CT scans."
 authors = [
     { name = "Chappuis Quentin", email = "quentin.chappuis@epfl.ch" }

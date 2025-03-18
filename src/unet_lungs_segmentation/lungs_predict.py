@@ -17,7 +17,7 @@ class LungsPredict:
             else "cpu"
         )
         self.model = UNet(n_channels=1, n_class=1).to(self.device)
-        self.checkpoint = get_weights()
+        self.checkpoint = get_weights(self.device)
         self.model.load_state_dict(self.checkpoint["model_state_dict"])
 
     """
