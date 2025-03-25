@@ -16,9 +16,10 @@ class LungsPredict:
             if torch.backends.mps.is_available()
             else "cpu"
         )
-        self.model = UNet(n_channels=1, n_class=1).to(self.device)
+        self.model = UNet(n_channels=1, n_class=1)
         self.checkpoint = get_weights(self.device)
-        self.model.load_state_dict(self.checkpoint["model_state_dict"])
+        self.model.load_state_dict(self.checkpoint)
+        self.model.to(self.device)
 
     """
         Predict the lungs segmentation of a given image by passing it to the trained model.
