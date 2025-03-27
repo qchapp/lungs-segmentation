@@ -1,7 +1,7 @@
 from huggingface_hub import hf_hub_download
 import torch
 
-REPO_ID = "titi100/unet-lungs-segmentation-weights"
+REPO_ID = "qchapp/unet-lungs-segmentation-weights"
 FILENAME = "weights.pt"
 
 def get_weights(device):

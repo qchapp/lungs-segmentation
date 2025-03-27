@@ -3,7 +3,7 @@
 We provide a neural network model for segmenting the lungs of the mice. The model is based on the [U-Net](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) architecture.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/titi1000/lungs-segmentation/refs/heads/master/images/main_fig.png" height="500">
+    <img src="https://raw.githubusercontent.com/qchapp/lungs-segmentation/refs/heads/master/images/main_fig.png" height="500">
 </p>
 
 The goal of our tool is to provid a reliable way to segment the lungs in mouse CT scans. The U-net model produces a binary mask representing the segmentation of the lungs.
@@ -28,13 +28,13 @@ pip install unet_lungs_segmentation
 or clone the repository and install with:
 
 ```sh
-git clone https://github.com/titi1000/lungs-segmentation.git
+git clone https://github.com/qchapp/lungs-segmentation.git
 pip install -e .
 ```
 
 ## Models
 
-The model weights (~1 GB) will be automatically downloaded from [Hugging Face](https://huggingface.co/titi100/unet-lungs-segmentation-weights).
+The model weights (~1 GB) will be automatically downloaded from [Hugging Face](https://huggingface.co/qchapp/unet-lungs-segmentation-weights).
 
 
 ## Usage in Napari
@@ -52,7 +52,7 @@ To open an image, use `File > Open files` or drag-and-drop an image into the vie
 Next, in the menu bar select `Plugins > Lungs segmentation (unet_lungs_segmentation)`. Select an image and run it by pressing the "Segment lungs" button.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/titi1000/lungs-segmentation/refs/heads/master/images/napari-screenshot.png" height="500">
+    <img src="https://raw.githubusercontent.com/qchapp/lungs-segmentation/refs/heads/master/images/napari-screenshot.png" height="500">
 </p>
 
 ## Usage as a library
