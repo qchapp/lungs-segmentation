@@ -1,12 +1,9 @@
+from huggingface_hub import hf_hub_download
 import torch
-import requests
-from io import BytesIO
 
-ZENODO_ID = "15085019"
-FILE_NAME = "weights.pt"
-url = f"https://zenodo.org/record/{ZENODO_ID}/files/{FILE_NAME}?download=1"
+REPO_ID = "titi100/unet-lungs-segmentation-weights"
+FILENAME = "weights.pt"
 
 def get_weights(device):
-    response = requests.get(url)
-    buffer = BytesIO(response.content)
-    return torch.load(buffer, map_location=device)
+    model_path = hf_hub_download(repo_id=REPO_ID, filename=FILENAME)
+    return torch.load(model_path, map_location=device)

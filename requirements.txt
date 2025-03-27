@@ -4,3 +4,4 @@ tifffile==2023.9.18
 matplotlib==3.8.2
 csbdeep==0.7.4
 python-dotenv==1.0.0
+huggingface_hub==0.29.3
