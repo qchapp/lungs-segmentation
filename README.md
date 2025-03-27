@@ -34,7 +34,7 @@ pip install -e .
 
 ## Models
 
-The model weights (~1 GB) will be automatically downloaded from [Zenodo](https://zenodo.org/records/15011174).
+The model weights (~1 GB) will be automatically downloaded from [Hugging Face](https://huggingface.co/titi100/unet-lungs-segmentation-weights).
 
 
 ## Usage in Napari
