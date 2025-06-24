@@ -109,6 +109,11 @@ Our model was trained using a dataset of `355` images coming from 17 different e
 
 If you encounter any problems, please fill an issue along with a detailed description.
 
+## Acknowledgments
+
+This project was developed as part of a **Bachelor’s project** at the *EPFL Center for Imaging*.  
+It was carried out under the supervision of **Mallory Wittwer** and **Edward Andò**, whom we sincerely thank for their guidance and support.
+
 ## License
 
 This model is licensed under the [BSD-3](LICENSE.txt) license.
