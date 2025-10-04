@@ -1,23 +1,25 @@
+# syntax=docker/dockerfile:1
 FROM python:3.10-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
 
 WORKDIR /app
 
-# Install minimal system dependencies (git sometimes required by huggingface_hub)
-RUN apt-get update && apt-get install -y --no-install-recommends git \
-    && rm -rf /var/lib/apt/lists/*
+# Minimal OS deps
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends git \
+ && rm -rf /var/lib/apt/lists/*
 
-# Copy only project metadata first (better build cache)
+# Copy project metadata first (better build cache)
 COPY pyproject.toml setup.cfg README.md LICENSE ./
 
-# Install the project (this pulls dependencies declared in setup.cfg)
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir .
-
-# Copy source (in case editable non-packaged assets are needed at runtime)
+# Copy source BEFORE installing so packaging sees the code
 COPY src ./src
 
-ENV PYTHONUNBUFFERED=1
+# Install the project and its deps
+RUN pip install --upgrade pip && pip install .
 
-# Default entrypoint: single-image prediction CLI. Pass -i argument at runtime.
+# Default entrypoint: single-image prediction CLI
 ENTRYPOINT ["uls_predict_image"]
 CMD ["--help"]
