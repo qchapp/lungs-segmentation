@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.10] - 2025-10-04
 ### Added
 - Initial Docker support (single `Dockerfile`) with CLI entrypoint `uls_predict_image`.
-- GitHub Actions workflow (`docker.yml`) to build and publish image to Docker Hub (tags: `latest`, version, commit SHA).
+- GitHub Actions workflow (`docker.yml`) to build and publish image to GitHub Container Registry (tags: `latest`, version, commit SHA).
 - This `CHANGELOG.md` file.
 
 ### Changed
